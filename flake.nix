@@ -7,6 +7,18 @@
     # it'll impact your entire system.
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
 
+  nixConfig = {
+    substituters = [
+      "https://mirror.sjtu.edu.cn/nix-channels/store"
+      "https://mirrors.ustc.edu.cn/nix-channels/store"
+      
+      "https://cache.nixos.org"
+    ];
+    trusted-public-keys = [
+      "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+    ];
+  };
+
     # Used to get ibus 1.5.29 which has some quirks we want to test.
     nixpkgs-old-ibus.url = "github:nixos/nixpkgs/e2dd4e18cc1c7314e24154331bae07df76eb582f";
 
