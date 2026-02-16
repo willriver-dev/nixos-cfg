@@ -76,13 +76,18 @@
       inputs.jujutsu.overlays.default
       inputs.zig.overlays.default
 
-      (final: prev: rec {
+      (final: prev: let
+        unstable = import inputs.nixpkgs-unstable {
+          system = prev.system;
+          config.allowUnfree = true;
+        };
+      in rec {
         # gh CLI on stable has bugs.
-        gh = inputs.nixpkgs-unstable.legacyPackages.${prev.system}.gh;
+        gh = unstable.gh;
 
         # Want the latest version of these
-        claude-code = inputs.nixpkgs-unstable.legacyPackages.${prev.system}.claude-code;
-        nushell = inputs.nixpkgs-unstable.legacyPackages.${prev.system}.nushell;
+        claude-code = unstable.claude-code;
+        nushell = unstable.nushell;
 
         ibus = ibus_stable;
         ibus_stable = inputs.nixpkgs.legacyPackages.${prev.system}.ibus;
