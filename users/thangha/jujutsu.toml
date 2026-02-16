@@ -1,10 +1,12 @@
+# TODO: Update with your information
 [user]
-email = "m@mitchellh.com"
-name = "Mitchell Hashimoto"
+email = "your.email@example.com"
+name = "Your Name"
 
-[signing]
-backend = "gpg"
-behavior = "own"
+# TODO: Configure GPG signing if needed
+# [signing]
+# backend = "gpg"
+# behavior = "own"
 
 [aliases]
 b = ["branch"]

@@ -1,23 +1,22 @@
 {
   description = "NixOS systems and tools by mitchellh";
 
-  inputs = {
-    # Pin our primary nixpkgs repository. This is the main nixpkgs repository
-    # we'll use for our configurations. Be very careful changing this because
-    # it'll impact your entire system.
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
-
   nixConfig = {
     substituters = [
       "https://mirror.sjtu.edu.cn/nix-channels/store"
       "https://mirrors.ustc.edu.cn/nix-channels/store"
-      
       "https://cache.nixos.org"
     ];
     trusted-public-keys = [
       "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
     ];
   };
+
+  inputs = {
+    # Pin our primary nixpkgs repository. This is the main nixpkgs repository
+    # we'll use for our configurations. Be very careful changing this because
+    # it'll impact your entire system.
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
 
     # Used to get ibus 1.5.29 which has some quirks we want to test.
     nixpkgs-old-ibus.url = "github:nixos/nixpkgs/e2dd4e18cc1c7314e24154331bae07df76eb582f";
@@ -98,33 +97,33 @@
   in {
     nixosConfigurations.vm-aarch64 = mkSystem "vm-aarch64" {
       system = "aarch64-linux";
-      user   = "mitchellh";
+      user   = "thangha";
     };
 
     nixosConfigurations.vm-aarch64-prl = mkSystem "vm-aarch64-prl" rec {
       system = "aarch64-linux";
-      user   = "mitchellh";
+      user   = "thangha";
     };
 
     nixosConfigurations.vm-aarch64-utm = mkSystem "vm-aarch64-utm" rec {
       system = "aarch64-linux";
-      user   = "mitchellh";
+      user   = "thangha";
     };
 
     nixosConfigurations.vm-intel = mkSystem "vm-intel" rec {
       system = "x86_64-linux";
-      user   = "mitchellh";
+      user   = "thangha";
     };
 
     nixosConfigurations.wsl = mkSystem "wsl" {
       system = "x86_64-linux";
-      user   = "mitchellh";
+      user   = "thangha";
       wsl    = true;
     };
 
     darwinConfigurations.macbook-pro-m1 = mkSystem "macbook-pro-m1" {
       system = "aarch64-darwin";
-      user   = "mitchellh";
+      user   = "thangha";
       darwin = true;
     };
   };

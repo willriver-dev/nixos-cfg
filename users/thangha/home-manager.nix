@@ -182,18 +182,21 @@ in {
 
   programs.git = {
     enable = true;
-    signing = {
-      key = "523D5DC389D273BC";
-      signByDefault = true;
-    };
+    # TODO: Configure GPG signing if you want to sign commits
+    # signing = {
+    #   key = "YOUR_GPG_KEY_ID";
+    #   signByDefault = true;
+    # };
     settings = {
-      user.name = "Mitchell Hashimoto";
-      user.email = "m@mitchellh.com";
+      # TODO: Update with your information
+      user.name = "Your Name";
+      user.email = "your.email@example.com";
       branch.autosetuprebase = "always";
       color.ui = true;
       core.askPass = ""; # needs to be empty to use terminal for ask pass
       credential.helper = "store"; # want to make this more secure
-      github.user = "mitchellh";
+      # TODO: Update with your GitHub username
+      github.user = "your-github-username";
       push.default = "tracking";
       init.defaultBranch = "main";
       aliases = {

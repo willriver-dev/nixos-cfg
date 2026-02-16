@@ -18,14 +18,17 @@
     # here, NOT in environment.systemPackages
   ];
 
-  users.users.mitchellh = {
+  users.users.thangha = {
     isNormalUser = true;
-    home = "/home/mitchellh";
+    home = "/home/thangha";
     extraGroups = [ "docker" "lxd" "wheel" ];
     shell = pkgs.fish;
+    # TODO: Set your own password with: mkpasswd -m sha-512
+    # Or use initialPassword = "yourpassword"; for first login
     hashedPassword = "$6$p5nPhz3G6k$6yCK0m3Oglcj4ZkUXwbjrG403LBZkfNwlhgrQAqOospGJXJZ27dI84CbIYBNsTgsoH650C1EBsbCKesSVPSpB1";
-    openssh.authorizedKeys.keys = [
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGbTIKIPtrymhvtTvqbU07/e7gyFJqNS4S0xlfrZLOaY mitchellh"
-    ];
+    # TODO: Add your own SSH public key(s) here
+    # openssh.authorizedKeys.keys = [
+    #   "ssh-ed25519 AAAA... your-key-here"
+    # ];
   };
 }
